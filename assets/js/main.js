@@ -56,7 +56,14 @@
     activeId = id;
     closeMenu();
     window.scrollTo({ top: 0, behavior: o.immediate ? 'auto' : 'smooth' });
-    if (history.replaceState) history.replaceState(null, '', '#' + id);
+
+    // limpa o hash da URL ao trocar de aba: se gravassemos '#engenharia',
+    // o navegador restauraria essa aba na proxima visita em vez de abrir
+    // a pagina inicial. Links com #aba continuam funcionando para quem
+    // digitar ou compartilhar direto.
+    if (!o.immediate && history.replaceState) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
 
     // redesenha os visores 3D que ficaram com tamanho errado
     setTimeout(resizeViewers, 120);
@@ -76,6 +83,11 @@
     });
   }
 
+  const DEFAULT_TAB = 'inicio';
+
+  /* abre a aba pedida no hash; se nao houver hash valido, abre a inicial.
+     assim o site sempre comeca pela pagina inicial, a nao ser que o
+     visitante chegue por um link direto de secao (ex.: #projetos). */
   function fromHash() {
     const id = (location.hash || '').slice(1);
     if (id && document.getElementById(id) && document.getElementById(id).classList.contains('panel')) {
@@ -85,6 +97,21 @@
     return false;
   }
   window.addEventListener('hashchange', fromHash);
+
+  /* ponto de partida garantido */
+  let started = false;
+  function start() {
+    if (started) return;      // so na primeira chamada, senao voltaria para a home
+    started = true;
+    if (!fromHash()) {
+      openTab(DEFAULT_TAB, { immediate: true });
+      // limpa um hash antigo que nao corresponda a nenhuma aba
+      if (location.hash && history.replaceState) {
+        history.replaceState(null, '', location.pathname + location.search);
+      }
+    }
+    syncIndicator();
+  }
 
   function syncIndicator() {
     const a = tabBtns.find((b) => b.classList.contains('active')) || tabBtns[0];
@@ -115,12 +142,15 @@
     }
   }
 
+  /* o navegador nao deve restaurar rolagem nem aba de visitas anteriores */
+  if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
   if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', () => { if (!fromHash()) syncIndicator(); });
+    document.addEventListener('DOMContentLoaded', start);
   } else {
-    if (!fromHash()) syncIndicator();
+    start();
   }
-  window.addEventListener('load', () => { if (!fromHash()) syncIndicator(); });
+  window.addEventListener('load', start, { once: true });
 
   /* =============== FILTRO =============== */
   const fbtns = $$('.fbtn');
