@@ -1,0 +1,31 @@
+{
+  "_comoUsar": "Cada entrada liga um visor 3D do site a um arquivo .glb em assets/modelos/. Preencha 'url' com o nome do arquivo. Deixe '' para o visor mostrar 'sem modelo'. Voce tambem pode simplesmente ARRASTAR um .glb por cima do visor no navegador.",
+
+  "hero": {
+    "url": "hero.glb",
+    "nome": "Esteira MFC.1001",
+    "autoRotate": true
+  },
+
+  "eq-fc1001": {
+    "url": "hero.glb",
+    "nome": "Esteira MFC.1001",
+    "autoRotate": true
+  },
+
+  "destaque": {
+    "url": "",
+    "nome": "Modelo 3D do projeto",
+    "autoRotate": true
+  },
+
+  "eq-01-esteira":     { "url": "", "nome": "Esteira de Entrada de Toras", "autoRotate": true },
+  "eq-02-stepfeeder":  { "url": "", "nome": "Stepfeeder Unitizador", "autoRotate": true },
+  "eq-03-serrasplit":  { "url": "", "nome": "Serra Log Split Saw", "autoRotate": true },
+  "eq-04-transposicao":{ "url": "", "nome": "Transposicao com Tombador", "autoRotate": true },
+  "eq-05-stepfeeder14":{ "url": "", "nome": "Stepfeeder 1.4", "autoRotate": true },
+  "eq-06-pulmao":      { "url": "", "nome": "Esteira Pulmao Dupla Tracao", "autoRotate": true },
+  "eq-07-centrador":   { "url": "", "nome": "Centrador Tornado 1.4", "autoRotate": true },
+  "eq-08-pista":       { "url": "", "nome": "Pista de Laminas 2 Decks", "autoRotate": true },
+  "eq-09-residuos":    { "url": "", "nome": "Esteiras de Residuos", "autoRotate": true }
+}

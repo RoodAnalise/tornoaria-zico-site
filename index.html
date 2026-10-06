@@ -1,0 +1,935 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>TORNOARIA ZICO | Usinagem de Precisão e Linhas para Madereiras e Serrarias</title>
+<meta name="description" content="TORNOARIA ZICO — Specialists em usinagem de precisão, solda e manutenção de linhas para madereiras laminadoras e serrarias. Linha Tornado 1.4 completa, projetos mecânicos 3D e equipe de engenharia própria. Autorizada WEG. Parceria AB Engenharia.">
+<meta name="theme-color" content="#0b2545">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@500;600;700&family=Inter:wght@300;400;500;600;700;800&family=Manrope:wght@400;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="assets/css/style.css">
+
+<script type="importmap">
+{
+  "imports": {
+    "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+    "three/addons/": "https://unpkg.com/three@0.160.0/examples/jsm/",
+    "three-cdn": "https://cdn.jsdelivr.net/npm/three@0.160.0/build/three.module.js",
+    "three/addons-cdn/": "https://cdn.jsdelivr.net/npm/three@0.160.0/examples/jsm/"
+  }
+}
+</script>
+</head>
+<body>
+
+<header class="topbar">
+  <div class="wrap topbar-inner">
+    <a href="#inicio" class="logo" data-tab-link="inicio">
+      <span class="logo-mark">TZ</span>
+      <span class="logo-txt">
+        <strong>TORNOARIA</strong>
+        <em>ZICO</em>
+      </span>
+    </a>
+
+    <nav class="tabs" id="tabs" role="tablist" aria-label="Seções do site">
+      <button class="tab active" role="tab" aria-selected="true"  data-tab-btn="inicio">Quem Somos</button>
+      <button class="tab"           role="tab" aria-selected="false" data-tab-btn="solucoes">Soluções</button>
+      <button class="tab"           role="tab" aria-selected="false" data-tab-btn="equipamentos">Equipamentos</button>
+      <button class="tab"           role="tab" aria-selected="false" data-tab-btn="projetos">Projetos</button>
+      <button class="tab"           role="tab" aria-selected="false" data-tab-btn="engenharia">Engenharia</button>
+      <button class="tab tab-cta"   role="tab" aria-selected="false" data-tab-btn="contato">Fale Conosco</button>
+      <span class="tab-indicator" id="tabIndicator"></span>
+    </nav>
+
+    <button class="menu-btn" id="menuBtn" aria-label="Abrir menu" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>
+
+<main id="app">
+
+<!-- ============================================================
+     01 — QUEM SOMOS
+     ============================================================ -->
+<section class="panel active" id="inicio" role="tabpanel" aria-label="Quem Somos">
+
+  <div class="hero">
+    <div class="hero-bg" aria-hidden="true"></div>
+    <div class="wrap hero-inner">
+      <div class="hero-copy">
+        <span class="chip"><i></i> Parceria AB Engenharia &nbsp;•&nbsp; Autorizada WEG</span>
+        <h1>Referência em usinagem e<br>manutenção para o setor<br><em>madeireiro</em>.</h1>
+        <p>
+          A <strong>TORNOARIA ZICO</strong> projeta, fabrica e mantém linhas completas
+          para <strong>madereiras laminadoras</strong> e <strong>serrarias</strong>.
+          Do conceito 3D à peça usinada, sem tirar a mão da sua fábrica.
+        </p>
+        <div class="hero-btns">
+          <a class="btn btn-gold" href="#equipamentos" data-tab-link="equipamentos">Ver Equipamentos</a>
+          <a class="btn btn-line" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Ol%C3%A1!%20Quero%20um%20or%C3%A7amento%20com%20a%20TORNOARIA%20ZICO">Falar no WhatsApp</a>
+        </div>
+      </div>
+
+      <figure class="hero-3d">
+        <div class="v3d v3d-lg" data-model="hero" data-label="Modelo 3D interativo"></div>
+        <figcaption>
+          <strong>Esteira MFC.1001 — modelo 3D</strong>
+          <span>Arraste para girar · role para ampliar · toque numa peça para destacar</span>
+        </figcaption>
+      </figure>
+    </div>
+
+    <div class="hero-stats">
+      <div class="hs"><b data-count="9" data-suffix="">0</b><span>Módulos da<br>Linha Tornado 1.4</span></div>
+      <div class="hs"><b data-count="100" data-suffix="%">0</b><span>Fluxo contínuo<br>na produção</span></div>
+      <div class="hs"><b data-count="0" data-raw="Zero">0</b><span>Gap entre<br>folhas laminadas</span></div>
+      <div class="hs"><b data-count="24" data-suffix="h">0</b><span>Suporte técnico<br>em planta</span></div>
+    </div>
+  </div>
+
+  <div class="wrap section">
+    <div class="sec-head">
+      <span class="tag">Quem Somos</span>
+      <h2>Engenharia que transforma chapa em componente</h2>
+      <p class="sec-lead">
+        Somos uma oficina industrial de alta precisão com foco absoluto no setor madeireiro.
+        Trabalhamos lado a lado com a <strong>AB Engenharia</strong> como parceiro técnico,
+        unindo projeto, fabricação e manutenção em uma única cadeia de qualidade.
+      </p>
+    </div>
+
+    <div class="about">
+      <div class="about-col">
+        <p class="drop">
+          Nossa estrutura conta com <strong>Torno CNC</strong>, <strong>centros de usinagem
+          ROMI</strong>, equipamentos de <strong>corte plasma CNC</strong> e uma equipe de
+          <strong>especialistas em solda</strong>. Cada peça sai de um projeto mecânico
+          avançado em 3D — o que vai para a máquina já foi simulado e validado.
+        </p>
+        <p>
+          Atendemos principalmente <strong>madereiras laminadoras e serrarias</strong>: um
+          segmento em que cada parafuso, bucha e redutor impacta direto na qualidade da
+          chapa produzida. Do projeto à manutenção, conhecemos cada máquina do chão de fábrica.
+        </p>
+
+        <div class="seal-row">
+          <div class="seal">
+            <span class="seal-ic">◈</span>
+            <div><strong>AB Engenharia</strong><small>Parceria técnica e de engenharia</small></div>
+          </div>
+          <div class="seal">
+            <span class="seal-ic">⬢</span>
+            <div><strong>WEG</strong><small>Revenda e assistência autorizada</small></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="about-side">
+        <div class="spec-box">
+          <h3>Capacidade técnica</h3>
+          <ul>
+            <li><span>Tolerância</span><b>±0,01 mm</b></li>
+            <li><span>Materiais</span><b>Aço, Inox, Alumínio</b></li>
+            <li><span>Soldagem</span><b>TIG · MIG · Eletrodo</b></li>
+            <li><span>Corte</span><b>Plasma CNC</b></li>
+            <li><span>Projeto 3D</span><b>SolidWorks · Inventor</b></li>
+            <li><span>Segurança</span><b>NR-12</b></li>
+          </ul>
+        </div>
+
+        <ul class="fact-list">
+          <li><b>01</b><span>Torno CNC de alta precisão para peças complexas e grandes diâmetros</span></li>
+          <li><b>02</b><span>Centros de usinagem ROMI: vertical, horizontal e CNC</span></li>
+          <li><b>03</b><span>Linha completa de laminação e de arredondamento de toras</span></li>
+          <li><b>04</b><span>Projetos mecânicos avançados 3D, do conceito à fabricação</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="wrap section-tight">
+    <div class="pilares">
+      <article class="pilar">
+        <span class="pilar-ic">◆</span>
+        <h3>Especialistas em madeira</h3>
+        <p>Madereiras laminadoras, serrarias, plainers e arredondadores de toras. É o nosso setor de origem.</p>
+      </article>
+      <article class="pilar">
+        <span class="pilar-ic">◈</span>
+        <h3>Projeto 3D próprio</h3>
+        <p>Modelagem, simulação de interferência e análise de resistência antes de qualquer corte.</p>
+      </article>
+      <article class="pilar">
+        <span class="pilar-ic">⬢</span>
+        <h3>Fabricação própria</h3>
+        <p>Usinagem, solda e montagem — sem terceirizar o que define a qualidade da sua linha.</p>
+      </article>
+      <article class="pilar">
+        <span class="pilar-ic">✆</span>
+        <h3>Resposta no chão de fábrica</h3>
+        <p>Suporte técnico presencial, peças de reposição em prontidão e reparos com conhecimento real.</p>
+      </article>
+    </div>
+  </div>
+
+  <div class="marquee">
+    <div class="marquee-track">
+      <span>MADEREIRAS LAMINADORAS</span><i>•</i><span>SERRARIAS</span><i>•</i>
+      <span>LINHA TORNADO 1.4</span><i>•</i><span>USINAGEM DE PRECISÃO</span><i>•</i>
+      <span>TORNO CNC</span><i>•</i><span>CENTROS ROMI</span><i>•</i>
+      <span>SOLDA TIG / MIG</span><i>•</i><span>PLASMA CNC</span><i>•</i>
+      <span>PROJETOS MECÂNICOS 3D</span><i>•</i><span>AUTORIZADA WEG</span><i>•</i>
+      <span>MADEREIRAS LAMINADORAS</span><i>•</i><span>SERRARIAS</span><i>•</i>
+      <span>LINHA TORNADO 1.4</span><i>•</i><span>USINAGEM DE PRECISÃO</span><i>•</i>
+      <span>TORNO CNC</span><i>•</i><span>CENTROS ROMI</span><i>•</i>
+      <span>SOLDA TIG / MIG</span><i>•</i><span>PLASMA CNC</span><i>•</i>
+      <span>PROJETOS MECÂNICOS 3D</span><i>•</i><span>AUTORIZADA WEG</span><i>•</i>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     02 — SOLUÇÕES  (ênfase nos equipamentos de produção)
+     ============================================================ -->
+<section class="panel" id="solucoes" role="tabpanel" aria-label="Soluções" hidden>
+  <div class="wrap section">
+    <div class="sec-head">
+      <span class="tag">Soluções</span>
+      <h2>Equipamentos de produção e serviços</h2>
+      <p class="sec-lead">
+        Do torno CNC aos centros de usinagem ROMI: as máquinas que fazem a sua peça
+        acontecer, com manutenção garantida por quem construiu.
+      </p>
+    </div>
+
+    <h3 class="sub-title">Parque de usinagem e fabricação</h3>
+
+    <div class="sol-grid">
+
+      <article class="sol-card sol-big">
+        <div class="sol-ic"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="16"/><circle cx="24" cy="24" r="7"/><path d="M24 8v6M24 34v6M8 24h6M34 24h6"/></svg></div>
+        <h3>Torno CNC</h3>
+        <p class="slogan">A peça complexa sai perfeita na primeira usinagem.</p>
+        <p>Torneamento computerizado de alta precisão para peças complexas e grandes diâmetros, com acabamento de superfície controlado e repetibilidade de lote.</p>
+        <ul class="eq-specs">
+          <li><span>Precisão</span><b>±0,01 mm</b></li>
+          <li><span>Operação</span><b>Semi-automática</b></li>
+          <li><span>Refrigeração</span><b>Alta pressão</b></li>
+        </ul>
+      </article>
+
+      <article class="sol-card sol-big">
+        <div class="sol-ic"><svg viewBox="0 0 48 48"><rect x="8" y="6" width="32" height="36" rx="3"/><path d="M24 6v16"/><path d="M24 22l-9 5v8l9 5"/></svg></div>
+        <h3>Centro de Usinagem ROMI</h3>
+        <p class="slogan">Vertical, nacional e com precisão geométrica de fábrica.</p>
+        <p>Centros de usinagem de fabricação nacional — alta rigidez, suporte direto e peças de reposição sempre disponíveis.</p>
+        <ul class="eq-specs">
+          <li><span>Configuração</span><b>3 eixos</b></li>
+          <li><span>Fabricante</span><b>ROMI</b></li>
+          <li><span>Objetivo</span><b>Alta precisão</b></li>
+        </ul>
+      </article>
+
+      <article class="sol-card sol-big">
+        <div class="sol-ic"><svg viewBox="0 0 48 48"><rect x="6" y="16" width="36" height="22" rx="3"/><rect x="12" y="22" width="14" height="10" rx="2"/><circle cx="10" cy="12" r="3"/><circle cx="38" cy="12" r="3"/></svg></div>
+        <h3>Centro Horizontal ROMI</h3>
+        <p class="slogan">Alto volume com melhor acesso à peça.</p>
+        <p>Usinagem horizontal com paletização para produção em série,ideal para componentes que se repetem na linha.</p>
+        <ul class="eq-specs">
+          <li><span>Eixos</span><b>4 eixos</b></li>
+          <li><span>Automação</span><b>Paletização</b></li>
+          <li><span>Produção</span><b>Alto volume</b></li>
+        </ul>
+      </article>
+
+      <article class="sol-card sol-big">
+        <div class="sol-ic"><svg viewBox="0 0 48 48"><path d="M6 30c8 0 8-16 16-16s10 10 20 10"/><path d="M6 38h36"/><path d="M34 16l8 8-8 8"/></svg></div>
+        <h3>Corte Plasma CNC</h3>
+        <p class="slogan">Chapa de grande porte, corte de precisão.</p>
+        <p>Corte de alta exatidão em chapas de grande formato, com bisel, contornos complexos e repetibilidade industrial.</p>
+        <ul class="eq-specs">
+          <li><span>Mesa</span><b>Grande porte</b></li>
+          <li><span>Trajetória</span><b>Interpolada CNC</b></li>
+          <li><span>Acabamento</span><b>Bisel opcional</b></li>
+        </ul>
+      </article>
+
+      <article class="sol-card sol-big">
+        <div class="sol-ic"><svg viewBox="0 0 48 48"><path d="M14 38V14a6 6 0 0 1 6-6h8a6 6 0 0 1 0 12h-8"/><path d="M14 24h8a6 6 0 0 1 6 6v8"/></svg></div>
+        <h3>Bancadas de Solda TIG / MIG</h3>
+        <p class="slogan">Especialistas certificados de solda.</p>
+        <p>Fontes TIG inverter e MIG/MAG com exaustor. Estruturas soldadas para equipamentos industriais, bases, chassi e quadros.</p>
+        <ul class="eq-specs">
+          <li><span>Processos</span><b>TIG · MIG · Eletrodo</b></li>
+          <li><span>Equipe</span><b>Especialistas</b></li>
+          <li><span>Ambiente</span><b>Com exaustor</b></li>
+        </ul>
+      </article>
+
+      <article class="sol-card sol-big sol-weg">
+        <div class="sol-ic"><svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="12"/><path d="M24 12v24M12 24h24"/><path d="M24 42v-6"/></svg></div>
+        <h3>Weg — Revenda Autorizada</h3>
+        <p class="slogan">Acionamento com suporte certificado.</p>
+        <p>Somos <strong>autorizados WEG</strong>: motores, redutores, inversores de frequência, soft-starters e proteções de acionamentos.</p>
+        <ul class="eq-specs">
+          <li><span>Status</span><b>Autorizado</b></li>
+          <li><span>Produtos</span><b>Drives e motores</b></li>
+          <li><span>Suporte</span><b>Certificado</b></li>
+        </ul>
+      </article>
+
+    </div>
+
+    <h3 class="sub-title">Serviços para a sua linha</h3>
+
+    <div class="cards-grid">
+      <article class="card">
+        <span class="card-num">01</span>
+        <h3>Manutenção mecânica</h3>
+        <p>Preventiva, corretiva e preditiva. Contratos completos de linha, redução de paradas e suporte técnico em campo.</p>
+        <ul class="card-tags"><li>Redutores e eixos</li><li>Sobressalentes</li><li>Suporte 24h</li></ul>
+      </article>
+      <article class="card">
+        <span class="card-num">02</span>
+        <h3>Linhas completas</h3>
+        <p>Fabricação, montagem e comissionamento de linhas de laminação e de arredondamento de toras.</p>
+        <ul class="card-tags"><li>Laminação</li><li>Arredondamento</li><li>Comissionamento</li></ul>
+      </article>
+      <article class="card">
+        <span class="card-num">03</span>
+        <h3>Peças de reposição</h3>
+        <p>Flanges, buchas, mancais, pinões e redutores usinados com tolerância controlada e prontidão para reposição.</p>
+        <ul class="card-tags"><li>±0,01 mm</li><li>Pronta entrega</li><li>Desenho 3D</li></ul>
+      </article>
+      <article class="card">
+        <span class="card-num">04</span>
+        <h3>Reformas de linha</h3>
+        <p>Recuperação estrutural, revisão de aligning eadequate de produção para aumentar o rendimento do seu equipamento.</p>
+        <ul class="card-tags"><li>Estrutural</li><li>Alinhamento</li><li>Rendimento</li></ul>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     03 — EQUIPAMENTOS  (Linha Tornado 1.4 — foto + 3D)
+     ============================================================ -->
+<section class="panel" id="equipamentos" role="tabpanel" aria-label="Equipamentos" hidden>
+  <div class="wrap section">
+    <div class="sec-head">
+      <span class="tag">Equipamentos</span>
+      <h2>Linha Tornado 1.4 e equipamentos próprios</h2>
+      <p class="sec-lead">
+        Nove módulos em sintonia, na ordem real do processo. Cada equipamento tem
+        <strong>fotoampliada</strong> e <strong>modelo 3D interativo</strong> — clique para
+        alternar entre os dois e amplie à vontade.
+      </p>
+    </div>
+
+    <div class="filters" id="filters">
+      <button class="fbtn active" data-filter="all">Todos</button>
+      <button class="fbtn" data-filter="tornado">Linha Tornado 1.4</button>
+      <button class="fbtn" data-filter="fc">Esteiras MFC</button>
+    </div>
+
+    <!-- LINHA TORNADO 1.4 -->
+    <div class="eq-block" data-cat="tornado">
+      <div class="eq-block-head">
+        <div>
+          <span class="eq-badge">Linha completa</span>
+          <h3>Linha Tornado 1.4</h3>
+          <p>Da tora bruta à lâmina pronta: fluxo contínuo, corte que aproveita cada centímetro e máquinas que aguentam o turno mais pesado.</p>
+        </div>
+        <button class="eq-block-photo" type="button" data-zoom="assets/img/hero-linha.jpg" data-zoom-cap="Linha Tornado 1.4 completa">
+          <img src="assets/img/hero-linha.jpg" alt="Linha Tornado 1.4 completa da TORNOARIA ZICO" loading="lazy">
+          <span class="eq-zoom-hint">Clique para ampliar</span>
+        </button>
+      </div>
+
+      <ol class="fluxo">
+        <li><span>Entrada</span><b>Esteira de toras</b></li>
+        <li><span>Unitizar</span><b>Stepfeeder</b></li>
+        <li><span>Corte</span><b>Serra Split</b></li>
+        <li><span>Virar</span><b>Transposição</b></li>
+        <li><span>Dosar</span><b>Stepfeeder 1.4</b></li>
+        <li><span>Alinhar</span><b>Pulmão</b></li>
+        <li><span>Centrar</span><b>Centrador</b></li>
+        <li><span>Lâmina</span><b>Pista 2 decks</b></li>
+        <li><span>Limpar</span><b>Resíduos</b></li>
+      </ol>
+    </div>
+
+    <div class="eq-grid" id="eqGrid">
+
+      <article class="eq-card" data-cat="tornado">
+        <div class="eq-photo">
+          <img src="assets/img/eq-01-esteira.jpg" alt="Esteira de Entrada de Toras" loading="lazy">
+          <span class="eq-step">01 · Entrada</span>
+          <div class="eq-media">
+            <button class="eq-mbtn" type="button" data-act="zoom" title="Ampliar foto" aria-label="Ampliar foto">⤢</button>
+            <button class="eq-mbtn eq-mbtn-3d" type="button" data-act="3d" aria-pressed="false" title="Ver modelo 3D" aria-label="Ver modelo 3D">3D</button>
+          </div>
+          <div class="v3d v3d-card" data-model="eq-01-esteira"></div>
+        </div>
+        <div class="eq-body">
+          <h3>Esteira de Entrada de Toras</h3>
+          <p class="slogan">“Recebe o caminhão inteiro sem sufoco.”</p>
+          <p>Primeira da linha: recebe toras em grande volume e funciona como pulmão de entrada. A serra nunca fica esperando madeira.</p>
+          <ul class="eq-benefits">
+            <li>Converte carga massiva em fluxo cadenciado</li>
+            <li>Tração por correntes para carga pesada</li>
+            <li>Acionada sob demanda via sensores</li>
+          </ul>
+          <a class="eq-cta" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Quero%20cotar%20a%20Esteira%20de%20Entrada%20Tornado%20ZICO">Cotar esta máquina</a>
+        </div>
+      </article>
+
+      <article class="eq-card" data-cat="tornado">
+        <div class="eq-photo">
+          <img src="assets/img/eq-02-stepfeeder.jpg" alt="Stepfeeder Unitizador" loading="lazy">
+          <span class="eq-step">02 · Unitizar</span>
+          <div class="eq-media">
+            <button class="eq-mbtn" type="button" data-act="zoom" title="Ampliar foto" aria-label="Ampliar foto">⤢</button>
+            <button class="eq-mbtn eq-mbtn-3d" type="button" data-act="3d" aria-pressed="false" title="Ver modelo 3D" aria-label="Ver modelo 3D">3D</button>
+          </div>
+          <div class="v3d v3d-card" data-model="eq-02-stepfeeder"></div>
+        </div>
+        <div class="eq-body">
+          <h3>Stepfeeder Unitizador</h3>
+          <p class="slogan">“Do bolo bagunçado à fila perfeita.”</p>
+          <p>Pega o volume da esteira e entrega UMA tora por vez para a Serra Log Split, com espaçamento certo. Protege a serra contra entupimento.</p>
+          <ul class="eq-benefits">
+            <li>Unitiza e espaça automaticamente</li>
+            <li>Liberação sincronizada com a serra</li>
+            <li>Vigas removíveis: acesso rápido ao cilindro</li>
+          </ul>
+          <a class="eq-cta" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Quero%20cotar%20o%20Stepfeeder%20Unitizador%20ZICO">Cotar esta máquina</a>
+        </div>
+      </article>
+
+      <article class="eq-card eq-star" data-cat="tornado">
+        <div class="eq-photo">
+          <img src="assets/img/eq-03-serrasplit.jpg" alt="Serra Log Split Saw" loading="lazy">
+          <span class="eq-step">03 · Corte</span>
+          <span class="eq-flag">Estrela da linha</span>
+          <div class="eq-media">
+            <button class="eq-mbtn" type="button" data-act="zoom" title="Ampliar foto" aria-label="Ampliar foto">⤢</button>
+            <button class="eq-mbtn eq-mbtn-3d" type="button" data-act="3d" aria-pressed="false" title="Ver modelo 3D" aria-label="Ver modelo 3D">3D</button>
+          </div>
+          <div class="v3d v3d-card" data-model="eq-03-serrasplit"></div>
+        </div>
+        <div class="eq-body">
+          <h3>Serra Log Split Saw</h3>
+          <p class="slogan">“Divide ao meio e multiplica seu lucro.”</p>
+          <p>A estrela da linha: divide a tora em duas metades no sentido longitudinal, eliminando a tortuosidade logo no início e aumentando o aproveitamento em todo o processo.</p>
+          <ul class="eq-benefits">
+            <li>Centragem + fixação pneumática da tora</li>
+            <li>Corte longitudinal preciso e repetitivo</li>
+            <li>Estrutura pesada anti-vibração</li>
+          </ul>
+          <a class="eq-cta" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Quero%20cotar%20a%20Serra%20Log%20Split%20Saw%20ZICO">Cotar esta máquina</a>
+        </div>
+      </article>
+
+      <article class="eq-card" data-cat="tornado">
+        <div class="eq-photo">
+          <img src="assets/img/eq-04-transposicao.jpg" alt="Transposição com Tombador" loading="lazy">
+          <span class="eq-step">04 · Virar</span>
+          <div class="eq-media">
+            <button class="eq-mbtn" type="button" data-act="zoom" title="Ampliar foto" aria-label="Ampliar foto">⤢</button>
+            <button class="eq-mbtn eq-mbtn-3d" type="button" data-act="3d" aria-pressed="false" title="Ver modelo 3D" aria-label="Ver modelo 3D">3D</button>
+          </div>
+          <div class="v3d v3d-card" data-model="eq-04-transposicao"></div>
+        </div>
+        <div class="eq-body">
+          <h3>Transposição com Tombador</h3>
+          <p class="slogan">“Vira a meia-tora com a face para baixo.”</p>
+          <p>Após o corte, posiciona cada metade com batente amortecido e tomba pneumaticamente para o Stepfeeder 1.4. Sem empilhadeira, sem braço, sem parada.</p>
+          <ul class="eq-benefits">
+            <li>Tombamento pneumático automático</li>
+            <li>Batente com amortecedor anti-rebote</li>
+            <li>Regulável para cada bitola de madeira</li>
+          </ul>
+          <a class="eq-cta" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Quero%20cotar%20a%20Transposi%C3%A7%C3%A3o%20com%20Tombador%20ZICO">Cotar esta máquina</a>
+        </div>
+      </article>
+
+      <article class="eq-card" data-cat="tornado">
+        <div class="eq-photo">
+          <img src="assets/img/eq-05-stepfeeder14.jpg" alt="Stepfeeder 1.4" loading="lazy">
+          <span class="eq-step">05 · Dosar</span>
+          <div class="eq-media">
+            <button class="eq-mbtn" type="button" data-act="zoom" title="Ampliar foto" aria-label="Ampliar foto">⤢</button>
+            <button class="eq-mbtn eq-mbtn-3d" type="button" data-act="3d" aria-pressed="false" title="Ver modelo 3D" aria-label="Ver modelo 3D">3D</button>
+          </div>
+          <div class="v3d v3d-card" data-model="eq-05-stepfeeder14"></div>
+        </div>
+        <div class="eq-body">
+          <h3>Stepfeeder 1.4</h3>
+          <p class="slogan">“Meia-tora organizada rumo ao arredondador.”</p>
+          <p>Recebe as meias-toras cortadas e unitiza em fila única e espaçada para alimentar o Arredondador. Guias ajustáveis abraçam cada diâmetro sem travar.</p>
+          <ul class="eq-benefits">
+            <li>Fila única para o arredondador</li>
+            <li>Guias amarelas ajustáveis por bitola</li>
+            <li>Ponto de espera anti-congestionamento</li>
+          </ul>
+          <a class="eq-cta" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Quero%20cotar%20o%20Stepfeeder%201.4%20ZICO">Cotar esta máquina</a>
+        </div>
+      </article>
+
+      <article class="eq-card" data-cat="tornado">
+        <div class="eq-photo">
+          <img src="assets/img/eq-06-pulmao.jpg" alt="Esteira Pulmão Dupla Tração" loading="lazy">
+          <span class="eq-step">06 · Alinhar</span>
+          <div class="eq-media">
+            <button class="eq-mbtn" type="button" data-act="zoom" title="Ampliar foto" aria-label="Ampliar foto">⤢</button>
+            <button class="eq-mbtn eq-mbtn-3d" type="button" data-act="3d" aria-pressed="false" title="Ver modelo 3D" aria-label="Ver modelo 3D">3D</button>
+          </div>
+          <div class="v3d v3d-card" data-model="eq-06-pulmao"></div>
+        </div>
+        <div class="eq-body">
+          <h3>Esteira Pulmão Dupla Tração</h3>
+          <p class="slogan">“Desempenha a tora torta sozinha.”</p>
+          <p>Última esteira antes do torno: acumula como pulmão e corrige o ângulo da tora com tração dupla independente — um lado anda, o outro segura, e ela entra a 90°.</p>
+          <ul class="eq-benefits">
+            <li>Alinhamento ativo lado esquerdo/direito</li>
+            <li>Guias que mantêm a tora centrada</li>
+            <li>Interface direta com o torno laminador</li>
+          </ul>
+          <a class="eq-cta" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Quero%20cotar%20a%20Esteira%20Pulm%C3%A3o%20ZICO">Cotar esta máquina</a>
+        </div>
+      </article>
+
+      <article class="eq-card" data-cat="tornado">
+        <div class="eq-photo">
+          <img src="assets/img/eq-07-centrador.jpg" alt="Centrador Tornado 1.4" loading="lazy">
+          <span class="eq-step">07 · Centrar</span>
+          <div class="eq-media">
+            <button class="eq-mbtn" type="button" data-act="zoom" title="Ampliar foto" aria-label="Ampliar foto">⤢</button>
+            <button class="eq-mbtn eq-mbtn-3d" type="button" data-act="3d" aria-pressed="false" title="Ver modelo 3D" aria-label="Ver modelo 3D">3D</button>
+          </div>
+          <div class="v3d v3d-card" data-model="eq-07-centrador"></div>
+        </div>
+        <div class="eq-body">
+          <h3>Centrador Tornado 1.4</h3>
+          <p class="slogan">“Mira milimétrica antes da laminação.”</p>
+          <p>No topo da esteira pulmão, empurra a tora contra o batente de referência e alinha o eixo exato de laminação com o centro do torno. É aqui que nasce a lâmina perfeita.</p>
+          <ul class="eq-benefits">
+            <li>Centragem pneumática automática</li>
+            <li>Batente regulável para máximo aproveitamento</li>
+            <li>Liberação só com torno pronto</li>
+          </ul>
+          <a class="eq-cta" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Quero%20cotar%20o%20Centrador%20Tornado%201.4%20ZICO">Cotar esta máquina</a>
+        </div>
+      </article>
+
+      <article class="eq-card" data-cat="tornado">
+        <div class="eq-photo">
+          <img src="assets/img/eq-08-pista.jpg" alt="Pista de Lâminas 2 Decks" loading="lazy">
+          <span class="eq-step">08 · Lâmina</span>
+          <div class="eq-media">
+            <button class="eq-mbtn" type="button" data-act="zoom" title="Ampliar foto" aria-label="Ampliar foto">⤢</button>
+            <button class="eq-mbtn eq-mbtn-3d" type="button" data-act="3d" aria-pressed="false" title="Ver modelo 3D" aria-label="Ver modelo 3D">3D</button>
+          </div>
+          <div class="v3d v3d-card" data-model="eq-08-pista"></div>
+        </div>
+        <div class="eq-body">
+          <h3>Pista de Lâminas 2 Decks</h3>
+          <p class="slogan">“Folha contínua, zero tempo morto.”</p>
+          <p>Transporta em alta velocidade a folha laminada do torno até a guilhotina em dois níveis. Enquanto uma tora termina num deck, a próxima já entra no outro.</p>
+          <ul class="eq-benefits">
+            <li>Sistema Zero Gap entre folhas</li>
+            <li>Deck de deflexão que direciona a lâmina</li>
+            <li>Tração independente por deck</li>
+          </ul>
+          <a class="eq-cta" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Quero%20cotar%20a%20Pista%20de%20L%C3%A2minas%20ZICO">Cotar esta máquina</a>
+        </div>
+      </article>
+
+      <article class="eq-card" data-cat="tornado">
+        <div class="eq-photo">
+          <img src="assets/img/eq-09-residuos.jpg" alt="Esteiras de Resíduos" loading="lazy">
+          <span class="eq-step">09 · Limpar</span>
+          <div class="eq-media">
+            <button class="eq-mbtn" type="button" data-act="zoom" title="Ampliar foto" aria-label="Ampliar foto">⤢</button>
+            <button class="eq-mbtn eq-mbtn-3d" type="button" data-act="3d" aria-pressed="false" title="Ver modelo 3D" aria-label="Ver modelo 3D">3D</button>
+          </div>
+          <div class="v3d v3d-card" data-model="eq-09-residuos"></div>
+        </div>
+        <div class="eq-body">
+          <h3>Esteiras de Resíduos</h3>
+          <p class="slogan">“Casca e refilo somem sozinhos.”</p>
+          <p>O tapetão sob a linha recolhe cascas, galhos e terra e manda direto para o picador. No retorno pós-guilhotina você ainda recupera miolo bom para reuso.</p>
+          <ul class="eq-benefits">
+            <li>Limpeza automática sob a linha</li>
+            <li>Descarga direta no picador ou biomassa</li>
+            <li>Aproveitamento de miolo pós-guilhotina</li>
+          </ul>
+          <a class="eq-cta" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Quero%20cotar%20as%20Esteiras%20de%20Res%C3%ADduos%20ZICO">Cotar esta máquina</a>
+        </div>
+      </article>
+
+      <!-- ESTEIRAS MFC (modelo 3D real disponivel) -->
+      <article class="eq-card eq-wide eq-has3d" data-cat="fc">
+        <div class="eq-photo">
+          <img src="assets/img/fc-esteira_isometrico.jpg" alt="Esteira MFC.1001 — vista isométrica" loading="lazy">
+          <span class="eq-step">MFC · Transporte</span>
+          <span class="eq-flag eq-flag-green">Modelo 3D disponível</span>
+          <div class="eq-media">
+            <button class="eq-mbtn" type="button" data-act="zoom" title="Ampliar foto" aria-label="Ampliar foto">⤢</button>
+            <button class="eq-mbtn eq-mbtn-3d" type="button" data-act="3d" aria-pressed="false" title="Ver modelo 3D" aria-label="Ver modelo 3D">3D</button>
+          </div>
+          <div class="v3d v3d-card" data-model="eq-fc1001" data-label="Esteira MFC.1001"></div>
+        </div>
+        <div class="eq-body">
+          <h3>Esteira Transportadora MFC.1001</h3>
+          <p class="slogan">“O modelo 3D completo, para você explorar agora.”</p>
+          <p>
+            Esteira de transporte com três correntes ASA 100, eixo tensionador regulável,
+            motorredutor R37 e mesa com guias bilaterais. Este é um exemplo real de como
+            os nossos modelos 3D aparecem no site: <strong>gire, amplie e toque nas peças
+            para destacá-las</strong>.
+          </p>
+          <div class="eq-gallery">
+            <button type="button" data-zoom="assets/img/fc-sistema_tracao.jpg" data-zoom-cap="Sistema de tração"><img src="assets/img/fc-sistema_tracao.jpg" alt="Sistema de tração" loading="lazy"></button>
+            <button type="button" data-zoom="assets/img/fc-eixo_tensionador.jpg" data-zoom-cap="Eixo tensionador"><img src="assets/img/fc-eixo_tensionador.jpg" alt="Eixo tensionador" loading="lazy"></button>
+            <button type="button" data-zoom="assets/img/fc-tensionamento_motoredutor.jpg" data-zoom-cap="Tensionamento do motorredutor"><img src="assets/img/fc-tensionamento_motoredutor.jpg" alt="Tensionamento do motorredutor" loading="lazy"></button>
+          </div>
+          <ul class="eq-benefits">
+            <li>3 correntes de arrasto ASA 100 + tração ASA 60</li>
+            <li>Eixo tensionador com regulagem simétrica</li>
+            <li>Mancais FL209 e motorredutor R37</li>
+            <li>Segurança NR-12 com proteção e LOTO</li>
+          </ul>
+          <a class="eq-cta" target="_blank" rel="noopener"
+             href="https://wa.me/5547991866317?text=Quero%20um%20or%C3%A7amento%20da%20Esteira%20MFC.1001%20da%20TORNOARIA%20ZICO">Cotar esta máquina</a>
+        </div>
+      </article>
+
+    </div>
+
+    <div class="why">
+      <div class="why-img">
+        <img src="assets/img/eq-motor.jpg" alt="Conjunto motorredutor da linha" loading="lazy">
+      </div>
+      <div class="why-txt">
+        <span class="tag">Por que a Zico</span>
+        <h3>Projeto nacional testado em serraria de verdade</h3>
+        <p>Poeira, turno dobrado e cobrança por produção. Nossas máquinas foram desenhadas nesse chão de fábrica.</p>
+        <ul class="why-list">
+          <li><b>Engenharia própria Zico</b><span>Processador de divisão de toras com estrutura reforçada e componentes de primeira linha.</span></li>
+          <li><b>Manutenção pensada</b><span>Vigas removíveis, tampas de acesso e tensionadores simples que reduzem downtime.</span></li>
+          <li><b>Segurança NR-12</b><span>Proteções, LOTO e ciclo automático com sensores em toda a linha.</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     04 — PROJETOS (foco em projetos mecânicos)
+     ============================================================ -->
+<section class="panel" id="projetos" role="tabpanel" aria-label="Projetos" hidden>
+  <div class="wrap section">
+    <div class="sec-head">
+      <span class="tag">Projetos</span>
+      <h2>Projetos mecânicos avançados em 3D</h2>
+      <p class="sec-lead">
+        Modelagem, simulação de interferência e análise de resistência — tudo validado
+        antes de a máquina cortar o primeiro milímetros.
+      </p>
+    </div>
+
+    <ol class="fluxo fluxo-etapas">
+      <li><span>01</span><b>Briefing</b><i>Levantamento técnico</i></li>
+      <li><span>02</span><b>Modelagem 3D</b><i>SolidWorks · Inventor</i></li>
+      <li><span>03</span><b>Simulação</b><i>Interferência e tensões</i></li>
+      <li><span>04</span><b>Fabricação</b><i>Usinagem e solda</i></li>
+      <li><span>05</span><b>Entrega</b><i>Montagem e suporte</i></li>
+    </ol>
+
+    <div class="proj-grid">
+      <article class="proj">
+        <span class="proj-code">PRJ-001</span>
+        <span class="proj-cat">Madereira</span>
+        <h3>Linha de Laminação</h3>
+        <p>Projeto mecânico 3D completo de linha de laminação, com conjunto de plainers, corte de tábuas, seccionamento e fluxo de saída — do conceito ao comissionamento.</p>
+        <div class="proj-tags"><span>3D</span><span>Usinagem CNC</span><span>Montagem</span></div>
+      </article>
+      <article class="proj">
+        <span class="proj-code">PRJ-002</span>
+        <span class="proj-cat">Serraria</span>
+        <h3>Arredondamento de Toras</h3>
+        <p>Projeto 3D da linha de arredondamento com alinhamento, torneamento e classificação automática — otimizando o aproveitamento de cada tora.</p>
+        <div class="proj-tags"><span>3D</span><span>Torno CNC</span><span>Serraria</span></div>
+      </article>
+      <article class="proj">
+        <span class="proj-code">PRJ-003</span>
+        <span class="proj-cat">Transporte</span>
+        <h3>Esteiras MFC</h3>
+        <p>Sistemas completos de transporte interno da serraria: esteiras de entrada, pulmão, tração dupla e coleta de resíduos, com modelo 3D navegável.</p>
+        <div class="proj-tags"><span>Modelo 3D</span><span>Mecânica</span><span>NR-12</span></div>
+      </article>
+      <article class="proj">
+        <span class="proj-code">PRJ-004</span>
+        <span class="proj-cat">Usinagem</span>
+        <h3>Peças de Precisão</h3>
+        <p>Flanges, buchas, mancais, pinões e redutores com tolerância controlada. Modelados em 3D e fabricados em torno CNC e centros ROMI.</p>
+        <div class="proj-tags"><span>CNC</span><span>ROMI</span><span>±0,01 mm</span></div>
+      </article>
+      <article class="proj">
+        <span class="proj-code">PRJ-005</span>
+        <span class="proj-cat">Estrutural</span>
+        <h3>Soldas e Estruturas</h3>
+        <p>Estruturas soldadas para equipamentos industriais: bases, suportes, chassi e quadros, com análise de tensão e execução por especialistas TIG e MIG.</p>
+        <div class="proj-tags"><span>Solda TIG</span><span>Estrutural</span><span>Análise</span></div>
+      </article>
+      <article class="proj">
+        <span class="proj-code">PRJ-006</span>
+        <span class="proj-cat">Manutenção</span>
+        <h3>Reforma de Linha</h3>
+        <p>Revisão completa de linha existente: recuperação estrutural, ajuste de alinhamento, troca de correntes e recuperação de rendimento.</p>
+        <div class="proj-tags"><span>Reforma</span><span>Alinhamento</span><span>Rendimento</span></div>
+      </article>
+    </div>
+
+    <div class="entrega">
+      <div class="entrega-txt">
+        <span class="tag">O que você recebe</span>
+        <h3>Documentação técnica completa</h3>
+        <p>Nenhum projeto sai da nossa engenharia sem estar documentado. Você recebe tudo o que precisa para manter a máquina por anos.</p>
+        <ul class="why-list">
+          <li><b>Modelo 3D navegável</b><span>Arquivo GLB para abrir no navegador e em qualquer visualizador.</span></li>
+          <li><b>Desenho técnico 2D</b><span>Vista explodida, cortes e cotas de fabricação.</span></li>
+          <li><b>Lista de materiais</b><span>Com códigos, Tolerâncias e proveedores especificados.</span></li>
+        </ul>
+      </div>
+      <div class="entrega-3d">
+        <div class="v3d v3d-md" data-model="destaque" data-label="Modelo 3D do projeto"></div>
+        <p class="mono-hint">Arraste um <code>.glb</code> sobre o visor para testar</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     05 — ENGENHARIA
+     ============================================================ -->
+<section class="panel" id="engenharia" role="tabpanel" aria-label="Engenharia" hidden>
+  <div class="wrap section">
+    <div class="sec-head">
+      <span class="tag">Engenharia</span>
+      <h2>Equipe de engenharia TORNOARIA ZICO</h2>
+      <p class="sec-lead">
+        Projeto próprio, do conceito à comissionamento. É a engenharia que entende a sua
+        linha porque nasceu dentro dela.
+      </p>
+    </div>
+
+    <div class="eng-hero">
+      <div class="eng-txt">
+        <h3>Engenharia que conhece o chão de fábrica</h3>
+        <p>
+          Nosso projeto nasceu em serraria de verdade — com poeira, turno dobrado e
+          cobrança por produção. Isso muda tudo: uma máquina que funciona no projeto de
+          CAD precisa funcionar também quando o operador está com pressa, a tora veio torta
+          e o turno precisa de produção.
+        </p>
+        <p>
+          Por isso trabalhamos com <strong>engenharia e fabricação na mesma casa</strong>.
+          Quem desenha conhece a usinagem; quem usina participa do desenho. Não existe
+          tradução de projeto nem disputa de culpa quando algo precisa mudar.
+        </p>
+        <div class="eng-pillars">
+          <div><b>Projeto 3D</b><span>SolidWorks e Inventor, com biblioteca de componentes padronizados da linha.</span></div>
+          <div><b>Simulação</b><span>Interferência, cinemática e análise de resistência antes de fabricar.</span></div>
+          <div><b>Fabricação</b><span>Torno CNC e centros ROMI executando o próprio projeto.</span></div>
+          <div><b>Comissionamento</b><span>Teste em planta com acompanhamento de produção real.</span></div>
+        </div>
+      </div>
+      <div class="eng-photo">
+        <img src="assets/img/eq-guias.jpg" alt="Guias laterais ajustáveis da linha" loading="lazy">
+      </div>
+    </div>
+
+    <div class="spec-grid">
+      <article class="spec-card"><span>01</span><h3>Madereiras laminadoras</h3><p>Linhas completas de laminação, plainers, corte de tábuas e sistemas de avanço. Fabricação, manutenção e reconstrução.</p></article>
+      <article class="spec-card"><span>02</span><h3>Serrarias</h3><p>Linhas de arredondamento de toras, afiação de lâminas, sistemas de avanço e alimentação — da tora bruta ao produto calibrado.</p></article>
+      <article class="spec-card"><span>03</span><h3>Transporte interno</h3><p>Esteiras de entrada, pulmão, tração dupla e coleta de resíduos — o que leva a tora e tira o refilo.</p></article>
+      <article class="spec-card"><span>04</span><h3>Manutenção e reforma</h3><p>Revisão de linhas existentes, recuperação estrutural e ajuste fino para devolver rendimento à máquina.</p></article>
+    </div>
+
+    <div class="eng-strip">
+      <div class="es"><b>+15</b><span>anos dedicate<br>ao setor madeireiro</span></div>
+      <div class="es"><b>24h</b><span>suporte técnico<br>em planta</span></div>
+      <div class="es"><b>NR-12</b><span>projetos de<br>segurança</span></div>
+      <div class="es"><b>100%</b><span>projeto e<br>fabricação próprios</span></div>
+    </div>
+
+    <div class="eng-cta">
+      <div>
+        <h3>Tem uma máquina que precisa melhorar?</h3>
+        <p>Manda a gente o problema. A primeira análise é por nossa conta.</p>
+      </div>
+      <a class="btn btn-gold btn-lg" target="_blank" rel="noopener"
+         href="https://wa.me/5547991866317?text=Ol%C3%A1!%20Preciso%20de%20uma%20an%C3%A1lise%20de%20engenharia%20para%20minha%20linha">Falar com a engenharia</a>
+    </div>
+  </div>
+</section>
+
+<!-- ============================================================
+     06 — FALE CONOSCO
+     ============================================================ -->
+<section class="panel" id="contato" role="tabpanel" aria-label="Fale Conosco" hidden>
+  <div class="wrap section">
+    <div class="sec-head">
+      <span class="tag">Fale Conosco</span>
+      <h2>Vamos falar do seu projeto</h2>
+      <p class="sec-lead">Envie sua necessidade. Nossa equipe responde rápido.</p>
+    </div>
+
+    <div class="ct-grid">
+      <div class="ct-side">
+        <div class="ct-card">
+          <span class="ct-ic">◈</span>
+          <div><h4>Parceria técnica</h4><p>Trabalhamos com a <strong>AB Engenharia</strong> — projeto, fabricação e manutenção em uma única cadeia.</p></div>
+        </div>
+        <div class="ct-card">
+          <span class="ct-ic">⬢</span>
+          <div><h4>Autorizada WEG</h4><p>Revenda e assistência de motores, redutores e acionamentos WEG com suporte técnico certificado.</p></div>
+        </div>
+        <div class="ct-card">
+          <span class="ct-ic">✆</span>
+          <div><h4>Atendimento</h4><p>Orçamentos para madereiras, serrarias e empresas do setor madeireiro.</p></div>
+        </div>
+
+        <a class="ct-wa" target="_blank" rel="noopener"
+           href="https://wa.me/5547991866317?text=Ol%C3%A1!%20Preciso%20de%20um%20or%C3%A7amento%20com%20a%20TORNOARIA%20ZICO">
+          <svg viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3L3 21z"/><path d="M8.5 8.5c0 3 2.5 5.5 5.5 5.5l1-1.5 2 .8-.4 1.8c-3 .6-8-4-8.6-7.2L9.5 6l1.5.8z"/></svg>
+          <span>Chamar no WhatsApp<small>Resposta em horário comercial</small></span>
+        </a>
+      </div>
+
+      <form class="ct-form" id="ctForm" novalidate>
+        <h3>Solicitação de orçamento</h3>
+
+        <div class="fld">
+          <label for="nome">Nome / Empresa</label>
+          <input type="text" id="nome" name="nome" placeholder="Seu nome ou razão social" required>
+          <small class="err">Informe seu nome ou empresa.</small>
+        </div>
+
+        <div class="fld">
+          <label for="telefone">Telefone / E-mail</label>
+          <input type="text" id="telefone" name="telefone" placeholder="(00) 00000-0000 ou seu@email.com" required>
+          <small class="err">Informe um telefone ou e-mail válido.</small>
+        </div>
+
+        <div class="fld">
+          <label for="servico">Preciso de</label>
+          <select id="servico" name="servico" required>
+            <option value="">Selecione uma opção</option>
+            <option>Linha Tornado 1.4 completa</option>
+            <option>Um módulo da Linha Tornado 1.4</option>
+            <option>Esteira MFC.1001</option>
+            <option>Torno CNC / usinagem de precisão</option>
+            <option>Centro de usinagem ROMI</option>
+            <option>Solda (TIG / MIG)</option>
+            <option>Manutenção mecânica</option>
+            <option>Corte plasma CNC</option>
+            <option>Projeto mecânico 3D</option>
+            <option>Reforma de linha</option>
+            <option>Weg — motores e redutores</option>
+            <option>Outro</option>
+          </select>
+          <small class="err">Selecione um serviço.</small>
+        </div>
+
+        <div class="fld">
+          <label for="msg">Detalhes</label>
+          <textarea id="msg" name="msg" rows="5" placeholder="Descreva o que você precisa: máquina, capacidade, bitola de madeira, prazo…" required></textarea>
+          <small class="err">Descreva sua necessidade.</small>
+        </div>
+
+        <button type="submit" class="btn btn-gold btn-full" id="ctSubmit">
+          <span>Enviar solicitação</span>
+        </button>
+        <p class="ct-msg" id="ctMsg" role="status"></p>
+      </form>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<!-- CTA FINAL -->
+<section class="cta">
+  <div class="wrap cta-inner">
+    <div>
+      <h2>Pronto para turbinar <em>a sua serraria?</em></h2>
+      <p>Receba proposta da Linha Tornado 1.4 completa ou por módulos.</p>
+    </div>
+    <a class="btn btn-gold btn-lg" target="_blank" rel="noopener"
+       href="https://wa.me/5547991866317?text=Ol%C3%A1!%20Vi%20o%20cat%C3%A1logo%20da%20Linha%20Tornado%201.4%20e%20quero%20um%20or%C3%A7amento">Chamar no WhatsApp</a>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="wrap foot-inner">
+    <div class="foot-brand">
+      <span class="logo-mark">TZ</span>
+      <div>
+        <strong>TORNOARIA ZICO</strong>
+        <p>Usinagem de precisão · Solda · Manutenção mecânica<br>Madereiras laminadoras e serrarias</p>
+      </div>
+    </div>
+    <nav class="foot-nav" aria-label="Rodapé">
+      <button data-tab-link="inicio">Quem Somos</button>
+      <button data-tab-link="solucoes">Soluções</button>
+      <button data-tab-link="equipamentos">Equipamentos</button>
+      <button data-tab-link="projetos">Projetos</button>
+      <button data-tab-link="engenharia">Engenharia</button>
+      <button data-tab-link="contato">Fale Conosco</button>
+    </nav>
+  </div>
+  <div class="wrap foot-bottom">
+    <span>© <span id="year"></span> TORNOARIA ZICO — Todos os direitos reservados.</span>
+    <span>Parceria AB Engenharia · Autorizada WEG</span>
+  </div>
+</footer>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Imagem ampliada" hidden>
+  <button class="lb-close" id="lbClose" aria-label="Fechar">✕</button>
+  <button class="lb-nav lb-prev" id="lbPrev" aria-label="Anterior">‹</button>
+  <button class="lb-nav lb-next" id="lbNext" aria-label="Próxima">›</button>
+  <figure class="lb-fig">
+    <img id="lbImg" src="" alt="">
+    <figcaption id="lbCap"></figcaption>
+  </figure>
+</div>
+
+<a class="wa-float" target="_blank" rel="noopener" aria-label="Fale conosco pelo WhatsApp"
+   href="https://wa.me/5547991866317?text=Ol%C3%A1!%20Vim%20pelo%20site%20da%20TORNOARIA%20ZICO">
+  <svg viewBox="0 0 24 24"><path d="M3 21l1.7-5A8.5 8.5 0 1 1 8 19.3L3 21z"/><path d="M8.5 8.5c0 3 2.5 5.5 5.5 5.5l1-1.5 2 .8-.4 1.8c-3 .6-8-4-8.6-7.2L9.5 6l1.5.8z"/></svg>
+  <span class="wa-tip">Orçamento rápido</span>
+</a>
+
+<script src="assets/js/main.js"></script>
+<script src="assets/js/viewer3d.js"></script>
+</body>
+</html>

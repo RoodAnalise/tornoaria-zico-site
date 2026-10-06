@@ -1,0 +1,28 @@
+# Sistema
+Thumbs.db
+desktop.ini
+.DS_Store
+
+# Temporarios e backups
+*.tmp
+*.bak
+*~
+
+# Ambiente / segredos
+.env
+.env.*
+
+# Dependencias (caso use node no futuro)
+node_modules/
+npm-debug.log*
+
+# Arquivos de origem de design (use os exports .jpg/.png)
+*.psd
+*.ai
+*.cdr
+
+# NOTA: os arquivos .glb NAO sao ignorados de proposito --
+# o modelo 3D da capa (assets/modelos/hero.glb) precisa ser
+# publicado para o site funcionar. Se algum .glb novo for
+# grande demais, adicione o nome exato aqui embaixo.
+# assets/modelos/arquivo-grande.glb
