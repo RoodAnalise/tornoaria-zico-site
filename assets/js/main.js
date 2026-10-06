@@ -154,9 +154,14 @@
   window.addEventListener('load', start, { once: true });
 
   /* o Chrome reaplica o fragmento depois do DOMContentLoaded,
-     entao o hash so desaparece de vez quando limpamos aqui */
+     entao o hash so desaparece de vez quando limpamos varias vezes
+     logo apos o carregamento */
   window.addEventListener('load', clearHash, { once: true });
-  setTimeout(clearHash, 400);
+  let tentativas = 0;
+  const repetir = setInterval(() => {
+    clearHash();
+    if (!location.hash || ++tentativas > 12) clearInterval(repetir);
+  }, 200);
 
   /* =============== FILTRO =============== */
   const fbtns = $$('.fbtn');
