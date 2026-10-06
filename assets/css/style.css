@@ -143,6 +143,9 @@ code { font-family: ui-monospace, 'SF Mono', Consolas, monospace; }
 /* ============ PAINÉIS ============ */
 .panel { display: none; animation: fadeUp .4s var(--ease); }
 .panel.active { display: block; }
+/* enquanto o JS nao decidiu qual aba abrir, nada e pintado:
+   evita o piscar de "Quem Somos" antes de trocar para outra secao */
+html.booting .panel { display: none !important; }
 @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: none; } }
 
 /* ============ HERO ============ */

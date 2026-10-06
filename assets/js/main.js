@@ -85,31 +85,22 @@
 
   const DEFAULT_TAB = 'inicio';
 
-  /* abre a aba pedida no hash; se nao houver hash valido, abre a inicial.
-     assim o site sempre comeca pela pagina inicial, a nao ser que o
-     visitante chegue por um link direto de secao (ex.: #projetos). */
-  function fromHash() {
-    const id = (location.hash || '').slice(1);
-    if (id && document.getElementById(id) && document.getElementById(id).classList.contains('panel')) {
-      openTab(id, { immediate: true });
-      return true;
-    }
-    return false;
-  }
-  window.addEventListener('hashchange', fromHash);
-
-  /* ponto de partida garantido */
+  /* O site sempre abre na pagina inicial, mesmo que a URL chegue com
+     um #hash de uma sessao antiga (ex.: #engenharia). Honrar o hash
+     fazia a pagina piscar "Quem Somos" e depois pular para outra aba.
+     Para ir direto a uma secao, use o menu/rodape. */
   let started = false;
   function start() {
-    if (started) return;      // so na primeira chamada, senao voltaria para a home
+    if (started) return;      // so na primeira chamada
     started = true;
-    if (!fromHash()) {
-      openTab(DEFAULT_TAB, { immediate: true });
-      // limpa um hash antigo que nao corresponda a nenhuma aba
-      if (location.hash && history.replaceState) {
-        history.replaceState(null, '', location.pathname + location.search);
-      }
+
+    // limpa qualquer hash antigo da URL
+    if (location.hash && history.replaceState) {
+      history.replaceState(null, '', location.pathname + location.search);
     }
+
+    openTab(DEFAULT_TAB, { immediate: true });
+    document.documentElement.classList.remove('booting');
     syncIndicator();
   }
 
@@ -144,6 +135,10 @@
 
   /* o navegador nao deve restaurar rolagem nem aba de visitas anteriores */
   if ('scrollRestoration' in history) history.scrollRestoration = 'manual';
+
+  /* rede de seguranca: se algo travar antes do start(), a pagina
+     nao pode ficar invisivel */
+  setTimeout(() => document.documentElement.classList.remove('booting'), 2500);
 
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', start);
