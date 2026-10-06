@@ -86,8 +86,8 @@ code { font-family: ui-monospace, 'SF Mono', Consolas, monospace; }
 /* ============ TOPBAR / ABAS ============ */
 .topbar {
   position: sticky; top: 0; z-index: 900;
-  background: rgba(11, 37, 69, .97);
-  -webkit-backdrop-filter: blur(12px); backdrop-filter: blur(12px);
+  background: var(--navy-900);
+  -webkit-backdrop-filter: saturate(140%) blur(12px); backdrop-filter: saturate(140%) blur(12px);
   box-shadow: 0 2px 20px rgba(11, 37, 69, .2);
 }
 .topbar-inner {
@@ -318,12 +318,18 @@ code { font-family: ui-monospace, 'SF Mono', Consolas, monospace; }
 .card-tags li { padding: 4px 11px; border-radius: 999px; background: var(--navy-050); color: var(--navy-700); font-size: clamp(.68rem, 1.4vw, .76rem); font-weight: 500; }
 
 /* ============ FILTROS ============ */
-.filters { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: clamp(24px, 4vw, 38px); }
+.filters {
+  display: flex; gap: 8px; flex-wrap: wrap;
+  margin-bottom: clamp(24px, 4vw, 38px);
+  /* espaco para o botao flutuante do WhatsApp nao cobrir o ultimo filtro */
+  padding-right: 68px;
+}
 .fbtn {
-  padding: 10px 18px; border-radius: 999px;
+  padding: 11px 18px; border-radius: 999px;
   background: #fff; border: 1px solid var(--line); color: var(--txt-mute);
   font-family: var(--f-title); font-weight: 600;
-  font-size: clamp(.78rem, 1.5vw, .88rem);
+  font-size: clamp(.82rem, 1.5vw, .88rem);
+  min-height: 44px;
   transition: .2s var(--ease);
 }
 .fbtn:hover { border-color: var(--navy-500); color: var(--navy-800); }
@@ -376,9 +382,10 @@ code { font-family: ui-monospace, 'SF Mono', Consolas, monospace; }
 .fluxo-etapas li i { font-style: normal; font-size: clamp(.72rem, 1.4vw, .8rem); color: var(--txt-mute); }
 
 /* ============ CARTÕES EQUIPAMENTO ============ */
-.eq-grid { display: grid; grid-template-columns: 1fr; gap: clamp(16px, 2.6vw, 22px); }
+.eq-grid { display: grid; grid-template-columns: 1fr; gap: clamp(16px, 2.6vw, 22px); align-items: stretch; }
 .eq-card {
-  display: flex; flex-direction: column; overflow: hidden;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
   background: #fff; border: 1px solid var(--line); border-radius: var(--r-lg);
   box-shadow: var(--shadow);
   transition: transform .22s var(--ease), box-shadow .22s var(--ease), border-color .22s var(--ease);
@@ -387,15 +394,22 @@ code { font-family: ui-monospace, 'SF Mono', Consolas, monospace; }
 .eq-card.hide { display: none; }
 .eq-star { border-color: var(--gold-500); box-shadow: 0 8px 28px rgba(224, 176, 63, .2); }
 
-.eq-photo { position: relative; height: clamp(200px, 42vw, 250px); overflow: hidden; background: var(--navy-900); }
+/* brilho dourado de base na foto (dentro da foto, nunca vazando para o card) */
+.eq-photo::before {
+  content: ''; position: absolute; left: 0; right: 0; bottom: 0; height: 34%;
+  z-index: 1; pointer-events: none;
+  background: linear-gradient(to top, rgba(224, 176, 63, .22), transparent);
+  mix-blend-mode: screen; opacity: .85;
+}
+
+.eq-photo {
+  position: relative; flex: 0 0 auto;
+  height: clamp(190px, 54vw, 240px);
+  overflow: hidden; background: var(--navy-900);
+}
 .eq-photo > img { width: 100%; height: 100%; object-fit: cover; transition: opacity .3s var(--ease), transform .6s var(--ease); }
 .eq-card:hover .eq-photo > img { transform: scale(1.05); }
-.eq-card::after {
-  content: ''; position: absolute; inset: auto 0 0 0; height: 38%;
-  pointer-events: none; z-index: 1;
-  background: linear-gradient(to top, rgba(224, 176, 63, .2), transparent);
-  mix-blend-mode: screen; opacity: .8;
-}
+/* vinheta para o cenario do card */
 .eq-photo::after {
   content: ''; position: absolute; inset: 0; z-index: 1; pointer-events: none;
   background: radial-gradient(ellipse 78% 70% at 50% 45%, transparent 46%, rgba(11, 37, 69, .5) 100%);
@@ -414,18 +428,18 @@ code { font-family: ui-monospace, 'SF Mono', Consolas, monospace; }
 }
 .eq-flag-green { background: #35d07f; }
 
-.eq-media { position: absolute; left: 10px; bottom: 10px; z-index: 5; display: flex; gap: 7px; }
+.eq-media { position: absolute; left: 10px; bottom: 10px; z-index: 5; display: flex; gap: 8px; }
 .eq-mbtn {
-  min-width: 38px; height: 38px; padding: 0 11px; border-radius: 10px;
+  min-width: 44px; height: 44px; padding: 0 12px; border-radius: 12px;
   display: grid; place-items: center;
-  background: rgba(8, 27, 51, .72); color: #d5e4f5;
-  backdrop-filter: blur(6px);
-  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .2);
-  font-family: var(--f-title); font-weight: 800; font-size: .82rem;
+  background: rgba(8, 27, 51, .78); color: #d5e4f5;
+  -webkit-backdrop-filter: blur(6px); backdrop-filter: blur(6px);
+  box-shadow: inset 0 0 0 1px rgba(255, 255, 255, .22);
+  font-family: var(--f-title); font-weight: 800; font-size: .85rem;
   transition: .2s var(--ease);
 }
 .eq-mbtn:hover { background: #fff; color: var(--navy-900); }
-.eq-mbtn-3d { background: rgba(224, 176, 63, .2); color: var(--gold-300); box-shadow: inset 0 0 0 1px rgba(245, 197, 66, .5); }
+.eq-mbtn-3d { background: rgba(224, 176, 63, .28); color: var(--gold-300); box-shadow: inset 0 0 0 1px rgba(245, 197, 66, .55); }
 .eq-mbtn-3d:hover, .eq-mbtn-3d.on { background: var(--gold-400); color: var(--navy-900); }
 .eq-photo.show3d > img { opacity: .12; }
 .eq-photo.show3d .eq-mbtn-3d { background: var(--gold-400); color: var(--navy-900); }
@@ -626,6 +640,10 @@ code { font-family: ui-monospace, 'SF Mono', Consolas, monospace; }
 .foot-nav button { padding: 9px 15px; border-radius: 999px; font-family: var(--f-title); font-weight: 600; font-size: clamp(.78rem, 1.6vw, .85rem); color: #9db6d2; min-height: 38px; transition: background .2s var(--ease), color .2s var(--ease); }
 .foot-nav button:hover { background: rgba(245, 197, 66, .16); color: var(--gold-300); }
 .foot-bottom { display: flex; flex-direction: column; gap: 8px; text-align: center; padding: 16px var(--gutter); border-top: 1px solid rgba(255, 255, 255, .08); font-size: .78rem; }
+/* folga no fim da pagina para o botao do WhatsApp nao cobrir conteudo */
+@media (max-width: 900px) {
+  .foot-bottom { padding-bottom: calc(24px + 56px + env(safe-area-inset-bottom)); }
+}
 
 /* ============ LIGHTBOX ============ */
 .lightbox {
@@ -776,23 +794,35 @@ code { font-family: ui-monospace, 'SF Mono', Consolas, monospace; }
 @media (max-width: 900px) {
   .menu-btn { display: flex; }
   .tabs {
-    position: fixed; top: 68px; left: 12px; right: 12px;
-    flex-direction: column; align-items: stretch; gap: 3px;
+    position: fixed; top: 68px; left: 8px; right: 8px;
+    flex-direction: column; align-items: stretch; gap: 4px;
     border-radius: 20px; padding: 10px;
     background: var(--navy-900);
-    box-shadow: 0 20px 50px rgba(8, 27, 51, .4);
+    box-shadow: 0 24px 60px rgba(8, 27, 51, .45);
     transform: translateY(-160%); opacity: 0; visibility: hidden;
     transition: transform .28s var(--ease), opacity .28s var(--ease), visibility .28s;
-    max-height: calc(100vh - 84px); overflow-y: auto;
+    max-height: calc(100dvh - 84px); overflow-y: auto;
     -webkit-overflow-scrolling: touch;
+    overscroll-behavior: contain;
   }
   .tabs.open { transform: translateY(0); opacity: 1; visibility: visible; }
-  .tab { text-align: left; padding: 13px 16px; border-radius: 12px; color: #c3d6ec; font-size: .95rem; min-height: var(--tap); display: flex; align-items: center; }
+  .tab {
+    text-align: left; padding: 14px 16px; border-radius: 12px;
+    color: #c3d6ec; font-size: 1rem;
+    min-height: 52px; display: flex; align-items: center; gap: 10px;
+  }
+  .tab::before {
+    content: ''; width: 6px; height: 6px; border-radius: 50%;
+    background: rgba(255, 255, 255, .25); flex: 0 0 6px;
+  }
   .tab.active { background: rgba(245, 197, 66, .16); color: var(--gold-300); }
+  .tab.active::before { background: var(--gold-400); box-shadow: 0 0 0 3px rgba(245, 197, 66, .25); }
+  .tab-cta { color: var(--gold-300); }
   .tab-indicator { display: none; }
   .topbar.scrolled { box-shadow: 0 4px 26px rgba(11, 37, 69, .3); }
   .hero { padding-top: 44px; }
-  .eq-wide { grid-column: span 2; }
+  /* em 1 coluna o card largo NAO pode ocupar 2 colunas (cria coluna fantasma) */
+  .eq-wide { grid-column: auto; }
 }
 
 /* --- telas médias --- */
@@ -831,27 +861,56 @@ code { font-family: ui-monospace, 'SF Mono', Consolas, monospace; }
 }
 
 /* --- celular --- */
-@media (max-width: 639px) {
+@media (max-width: 640px) {
+  /* nenhuma fonte abaixo de 11.5px: legibilidade em tela pequena */
+  :root {
+    --fs-min: 11.5px;
+  }
   .section { padding: 44px 0; }
   .section-tight { padding-bottom: 36px; }
   .hero { padding-top: 38px; }
   .hero-stats { margin-top: 32px; }
-  .filters { overflow-x: auto; flex-wrap: nowrap; padding-bottom: 6px; -webkit-overflow-scrolling: touch; scrollbar-width: none; }
-  .filters::-webkit-scrollbar { display: none; }
-  .fbtn { flex: 0 0 auto; min-height: 40px; }
-  .hero-btns { flex-direction: column; align-items: stretch; }
-  .hero-btns .btn, .cta-inner .btn, .eng-cta .btn { width: 100%; }
+
+  /* rotulos que eram pequenos demais */
+  .tag, .eq-badge, .proj-cat { font-size: 11.5px; }
+  .eq-step, .eq-flag { font-size: 11.5px; padding: 5px 11px; }
+  .eq-zoom-hint { font-size: 11.5px; }
+  .v3d-name { font-size: 11.5px; }
+  .v3d-stat { font-size: 11px; }
+  .fluxo li span { font-size: 11.5px; }
+  .hs span { font-size: 11.5px; }
+  .seal small { font-size: 11.5px; }
+  .spec-box li span, .eq-specs span { font-size: 11.5px; }
+  .card-tags li, .proj-tags span { font-size: 11.5px; }
+  .fluxo-etapas li i { font-size: 12px; }
+  .cta-panel p { font-size: 11.5px; }
+
   .fluxo { grid-template-columns: repeat(2, 1fr); }
   .fluxo li:not(:nth-child(2n))::after { content: '\203A'; }
   .fluxo li:nth-child(2n)::after { content: none; }
   .flow, .fluxo li:nth-child(3n)::after { content: none; }
-  .eq-photo { height: clamp(180px, 56vw, 240px); }
+  .eq-photo { height: clamp(190px, 56vw, 230px); }
   .lb-prev { left: 4px; } .lb-next { right: 4px; }
   .lb-fig img { max-height: 72vh; }
-  .v3d-tools { right: 8px; bottom: 8px; }
-  .v3d-btn { width: 40px; height: 40px; }
-  .eq-gallery img { height: 62px; }
+  /* os controles do 3D vao para a esquerda: a direita e do botao do WhatsApp */
+  .v3d-tools { right: auto; left: 8px; bottom: 8px; }
+  .v3d-btn { width: 42px; height: 42px; }
+  .v3d-hud { left: 10px; right: 10px; }
+  .v3d-empty-in { padding-bottom: 46px; }
+  /* com o 3D aberto, os botoes foto/3D sobem para o topo e o contador de fps some */
+  .eq-photo.show3d .eq-media { left: auto; right: 10px; top: 10px; bottom: auto; }
+  .v3d-card .v3d-stat { display: none; }
+
+  .eq-gallery img { height: 64px; }
   .eng-pillars { grid-template-columns: 1fr; }
+  .filters { padding-right: 0; margin-bottom: 28px; }
+  .filters::-webkit-scrollbar { display: none; }
+  .hero-btns { flex-direction: column; align-items: stretch; }
+  /* em coluna o flex-basis vira ALTURA: precisa zerar */
+  .hero-btns .btn,
+  .cta-inner .btn,
+  .eng-cta .btn { flex: 0 0 auto; width: 100%; min-height: 50px; }
+  .eq-cta, .ct-wa { min-height: 50px; display: flex; align-items: center; justify-content: center; }
 }
 
 /* --- celular pequeno --- */
@@ -861,13 +920,19 @@ code { font-family: ui-monospace, 'SF Mono', Consolas, monospace; }
   .logo-txt em { font-size: 11px; letter-spacing: .22em; }
   .logo-mark { width: 36px; height: 36px; flex-basis: 36px; font-size: 14px; }
   .hero h1 { font-size: 1.75rem; }
+  .sec-head h2 { font-size: 1.42rem; }
+  .sec-lead { font-size: .92rem; }
   .hs { padding: 15px 8px; }
   .sol-grid, .cards-grid, .proj-grid, .spec-grid, .pilares, .eq-grid { grid-template-columns: 1fr; }
-  .eq-wide { grid-column: span 1; }
+  .eq-wide { grid-column: auto; }
   .eng-strip { grid-template-columns: 1fr; }
   .wa-float { width: 50px; height: 50px; }
   .wa-tip { display: none; }
-  .eq-mbtn { height: 40px; min-width: 40px; }
+  .eq-mbtn { height: 44px; min-width: 44px; }
+  .eq-photo { height: 190px; }
+  .eq-gallery { gap: 6px; }
+  .eq-gallery img { height: 56px; }
+  .tab { min-height: 50px; }
 }
 
 /* --- celular minúsculo --- */
