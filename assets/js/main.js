@@ -89,16 +89,22 @@
      um #hash de uma sessao antiga (ex.: #engenharia). Honrar o hash
      fazia a pagina piscar "Quem Somos" e depois pular para outra aba.
      Para ir direto a uma secao, use o menu/rodape. */
+
+  /* limpa qualquer #hash da URL. O Chrome reaplica o fragmento logo
+     apos o DOMContentLoaded, por isso isso tambem roda no 'load'
+     e mais tarde num timeout. */
+  function clearHash() {
+    if (location.hash && history.replaceState) {
+      history.replaceState(null, '', location.pathname + location.search);
+    }
+  }
+
   let started = false;
   function start() {
     if (started) return;      // so na primeira chamada
     started = true;
 
-    // limpa qualquer hash antigo da URL
-    if (location.hash && history.replaceState) {
-      history.replaceState(null, '', location.pathname + location.search);
-    }
-
+    clearHash();
     openTab(DEFAULT_TAB, { immediate: true });
     document.documentElement.classList.remove('booting');
     syncIndicator();
@@ -146,6 +152,11 @@
     start();
   }
   window.addEventListener('load', start, { once: true });
+
+  /* o Chrome reaplica o fragmento depois do DOMContentLoaded,
+     entao o hash so desaparece de vez quando limpamos aqui */
+  window.addEventListener('load', clearHash, { once: true });
+  setTimeout(clearHash, 400);
 
   /* =============== FILTRO =============== */
   const fbtns = $$('.fbtn');
