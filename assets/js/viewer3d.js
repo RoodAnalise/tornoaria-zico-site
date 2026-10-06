@@ -337,6 +337,12 @@
     this.resize();
     this.renderOnce();
 
+    // inicia o loop de animacao AQUI. Antes ele so era chamado pelo
+    // IntersectionObserver, que dispara antes de o renderer existir:
+    // play() retornava por causa de !this.built e a tela ficava congelada
+    // num unico quadro -- o modelo parecia "nao interativo".
+    this.play();
+
     // tenta carregar o modelo configurado
     const cfg = state.manifest[this.id];
     if (cfg && cfg.url) this.loadURL(cfg.url);
@@ -549,13 +555,27 @@
     this.raycaster = new (state.three.Raycaster)();
     this.ndc = new (state.three.Vector2)(0, 0);
 
-    const canvas = this.renderer && this.renderer.domElement;
-    if (!canvas) return;
+    /* pausa o giro automatico enquanto o visitante manipula o modelo e
+       retoma 2,5s depois. Sem isso a rotacao continua embaixo da mao e
+       o arraste "parece" nao funcionar. */
+    const alvo = this.renderer && this.renderer.domElement;
+    if (alvo) {
+      const retomar = () => {
+        clearTimeout(this._idle);
+        this._usuarioAtivo = true;
+        this._idle = setTimeout(() => { this._usuarioAtivo = false; }, 2500);
+      };
+      ['pointerdown', 'wheel', 'touchstart'].forEach((ev) => {
+        alvo.addEventListener(ev, retomar, { passive: true });
+      });
+    }
 
     let downPt = null;
+    const canvas = alvo;
     canvas.addEventListener('pointerdown', (e) => {
       downPt = { x: e.clientX, y: e.clientY, t: Date.now() };
     });
+
     canvas.addEventListener('pointerup', (e) => {
       if (!downPt) return;
       const dx = e.clientX - downPt.x, dy = e.clientY - downPt.y;
@@ -659,7 +679,7 @@
       const dt = Math.min((now - last) / 1000, 0.1);
       last = now;
 
-      if (this.autoRotate && this.object) this.pivot.rotation.y += dt * 0.42;
+      if (this.autoRotate && this.object && !this._usuarioAtivo) this.pivot.rotation.y += dt * 0.42;
       this.controls.update();
       this.renderer.render(this.scene, this.camera);
 

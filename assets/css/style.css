@@ -746,9 +746,11 @@ html.booting .panel { display: none !important; }
 .v3d-btn:hover { background: var(--gold-400); color: var(--navy-900); }
 .v3d-btn.on { background: var(--gold-400); color: var(--navy-900); }
 
-.v3d-empty { position: absolute; inset: 0; z-index: 5; display: none; place-items: center; padding: 16px; text-align: center; }
+.v3d-empty { position: absolute; inset: 0; z-index: 5; display: none; place-items: center; padding: 16px; text-align: center; pointer-events: none; }
 .v3d-empty.show { display: grid; }
 .v3d-empty-in { display: grid; gap: 4px; justify-items: center; }
+/* so o botao de escolher arquivo pode ser clicado */
+.v3d-pick { pointer-events: auto; }
 .v3d-cube { font-size: clamp(26px, 7vw, 34px); color: var(--gold-400); opacity: .8; animation: cubeFloat 3.4s ease-in-out infinite; }
 @keyframes cubeFloat { 0%, 100% { transform: translateY(0) rotate(0); } 50% { transform: translateY(-7px) rotate(8deg); } }
 .v3d-empty strong { font-family: var(--f-title); font-weight: 800; font-size: clamp(.78rem, 1.7vw, .88rem); color: #fff; }
@@ -862,6 +864,9 @@ html.booting .panel { display: none !important; }
   .fluxo-etapas { grid-template-columns: repeat(5, 1fr); }
   .fluxo-etapas li::after { content: none; }
   .eq-wide { grid-column: span 3; }
+  /* o card largo e 3x mais largo que alto: um visor mais alto evita
+     que o modelo 3D fique pequeno no meio de uma faixa estreita */
+  .eq-wide .eq-photo { height: 380px; }
 }
 
 @media (min-width: 1280px) {
